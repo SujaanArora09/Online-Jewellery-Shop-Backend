@@ -15,10 +15,10 @@ import io.swagger.v3.oas.annotations.info.License;
 		description="SLK Assignment",
 		version="v1"
 		))
-public class ECommerceApplication {
+public class OnlineJewelleryShopApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ECommerceApplication.class, args);
+		SpringApplication.run(OnlineJewelleryShopApplication.class, args);
 	}
 
 }

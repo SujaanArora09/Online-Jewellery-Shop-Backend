@@ -37,7 +37,7 @@ public class DataInitializationComponent implements CommandLineRunner {
         if (userRepository.findByEmail(adminUsername)==null) {
             User adminUser = new User();
 
-            adminUser.setPassword(passwordEncoder.encode("codewithzosh"));
+            adminUser.setPassword(passwordEncoder.encode("12345678"));
             adminUser.setFirstName("sujan");
             adminUser.setLastName("arora");
             adminUser.setEmail(adminUsername);
