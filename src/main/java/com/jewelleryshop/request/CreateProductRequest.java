@@ -24,7 +24,7 @@ public class CreateProductRequest {
 
     private String brand;
 
-    private String color;
+    private String material;
 
     private Set<Size> size=new HashSet<>();
 
@@ -96,11 +96,11 @@ public class CreateProductRequest {
 	}
 
 	public String getColor() {
-		return color;
+		return material;
 	}
 
-	public void setColor(String color) {
-		this.color = color;
+	public void setColor(String material) {
+		this.material = material;
 	}
 
 	public String getImageUrl() {

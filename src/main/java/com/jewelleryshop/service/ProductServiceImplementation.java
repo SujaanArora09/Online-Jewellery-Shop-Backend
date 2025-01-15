@@ -160,7 +160,7 @@ public class ProductServiceImplementation implements ProductService {
 	
 	
 	@Override
-	public Page<Product> getAllProduct(String category, List<String>colors, 
+	public Page<Product> getAllProduct(String category, List<String>materials, 
 			List<String> sizes, Integer minPrice, Integer maxPrice, 
 			Integer minDiscount,String sort, String stock, Integer pageNumber, Integer pageSize ) {
 
@@ -169,9 +169,9 @@ public class ProductServiceImplementation implements ProductService {
 		List<Product> products = productRepository.filterProducts(category, minPrice, maxPrice, minDiscount, sort);
 		
 		
-		if (!colors.isEmpty()) {
+		if (!materials.isEmpty()) {
 			products = products.stream()
-			        .filter(p -> colors.stream().anyMatch(c -> c.equalsIgnoreCase(p.getColor())))
+			        .filter(p -> materials.stream().anyMatch(c -> c.equalsIgnoreCase(p.getColor())))
 			        .collect(Collectors.toList());
 		
 		
@@ -193,7 +193,7 @@ public class ProductServiceImplementation implements ProductService {
 
 		List<Product> pageContent = products.subList(startIndex, endIndex);
 		Page<Product> filteredProducts = new PageImpl<>(pageContent, pageable, products.size());
-	    return filteredProducts; // If color list is empty, do nothing and return all products
+	    return filteredProducts; // If material list is empty, do nothing and return all products
 		
 		
 	}
