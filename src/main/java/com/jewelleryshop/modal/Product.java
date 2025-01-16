@@ -48,8 +48,8 @@ public class Product {
     @Column(name = "brand")
     private String brand;
 
-    @Column(name = "material")
-    private String material;
+    @Column(name = "color")
+    private String color;
 
     @Embedded
     @ElementCollection
@@ -80,7 +80,7 @@ public class Product {
 	}
 
 	public Product(Long id, String title, String description, int price, int discountedPrice, int discountPersent,
-			int quantity, String brand, String material, Set<Size> sizes, String imageUrl, List<Rating> ratings,
+			int quantity, String brand, String color, Set<Size> sizes, String imageUrl, List<Rating> ratings,
 			List<Review> reviews, int numRatings, Category category, LocalDateTime createdAt) {
 		super();
 		this.id = id;
@@ -91,7 +91,7 @@ public class Product {
 		this.discountPersent = discountPersent;
 		this.quantity = quantity;
 		this.brand = brand;
-		this.material = material;
+		this.color = color;
 		this.sizes = sizes;
 		this.imageUrl = imageUrl;
 		this.ratings = ratings;
@@ -189,11 +189,11 @@ public class Product {
 	}
 
 	public String getColor() {
-		return material;
+		return color;
 	}
 
-	public void setColor(String material) {
-		this.material = material;
+	public void setColor(String color) {
+		this.color = color;
 	}
 
 	public String getImageUrl() {
@@ -230,7 +230,7 @@ public class Product {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(brand, category, material, description, discountPersent, discountedPrice, id, imageUrl,
+		return Objects.hash(brand, category, color, description, discountPersent, discountedPrice, id, imageUrl,
 				numRatings, price, quantity, ratings, reviews, sizes, title);
 	}
 
@@ -244,7 +244,7 @@ public class Product {
 			return false;
 		Product other = (Product) obj;
 		return Objects.equals(brand, other.brand) && Objects.equals(category, other.category)
-				&& Objects.equals(material, other.material) && Objects.equals(description, other.description)
+				&& Objects.equals(color, other.color) && Objects.equals(description, other.description)
 				&& discountPersent == other.discountPersent && discountedPrice == other.discountedPrice
 				&& Objects.equals(id, other.id) && Objects.equals(imageUrl, other.imageUrl)
 				&& numRatings == other.numRatings && price == other.price && quantity == other.quantity
