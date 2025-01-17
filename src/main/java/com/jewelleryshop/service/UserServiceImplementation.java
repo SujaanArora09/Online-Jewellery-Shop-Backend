@@ -60,4 +60,19 @@ public class UserServiceImplementation implements UserService {
 		return userRepository.findAllByOrderByCreatedAtDesc();
 	}
 
+	public User createUser(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public User findUserByEmail(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public User updateUser(long l, User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

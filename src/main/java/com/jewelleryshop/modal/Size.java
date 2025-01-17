@@ -6,6 +6,9 @@ public class Size {
 	private String name;
 	private int quantity;
 	
+	public Size(String string) {
+		// TODO Auto-generated constructor stub
+	}
 	public String getName() {
 		return name;
 	}
