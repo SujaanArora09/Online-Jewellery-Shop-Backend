@@ -2,6 +2,7 @@ package com.jewelleryshop.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,12 +21,10 @@ import com.jewelleryshop.service.OrderService;
 @RestController
 @RequestMapping("/api/admin/orders")
 public class AdminOrderController {
-	
+	@Autowired
 	private OrderService orderService;
 	
-	public AdminOrderController(OrderService orderService) {
-		this.orderService=orderService;
-	}
+
 	
 	@GetMapping("/")
 	public ResponseEntity<List<Order>> getAllOrdersHandler(){

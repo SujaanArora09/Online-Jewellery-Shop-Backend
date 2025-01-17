@@ -95,11 +95,11 @@ public class CreateProductRequest {
 		this.brand = brand;
 	}
 
-	public String getColor() {
+	public String getcolor() {
 		return color;
 	}
 
-	public void setColor(String color) {
+	public void setcolor(String color) {
 		this.color = color;
 	}
 

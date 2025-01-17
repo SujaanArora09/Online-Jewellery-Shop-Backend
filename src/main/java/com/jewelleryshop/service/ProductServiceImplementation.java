@@ -74,7 +74,7 @@ public class ProductServiceImplementation implements ProductService {
 		
 		Product product=new Product();
 		product.setTitle(req.getTitle());
-		product.setColor(req.getColor());
+		product.setcolor(req.getcolor());
 		product.setDescription(req.getDescription());
 		product.setDiscountedPrice(req.getDiscountedPrice());
 		product.setDiscountPersent(req.getDiscountPersent());
@@ -171,7 +171,7 @@ public class ProductServiceImplementation implements ProductService {
 		
 		if (!colors.isEmpty()) {
 			products = products.stream()
-			        .filter(p -> colors.stream().anyMatch(c -> c.equalsIgnoreCase(p.getColor())))
+			        .filter(p -> colors.stream().anyMatch(c -> c.equalsIgnoreCase(p.getcolor())))
 			        .collect(Collectors.toList());
 		
 		

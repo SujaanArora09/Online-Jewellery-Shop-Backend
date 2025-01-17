@@ -1,5 +1,6 @@
 package com.jewelleryshop.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -30,19 +31,17 @@ import jakarta.validation.Valid;
 @RequestMapping("/auth")
 public class AuthController {
 
+	@Autowired
 	private UserRepository userRepository;
+	@Autowired
 	private PasswordEncoder passwordEncoder;
+	@Autowired
 	private JwtTokenProvider jwtTokenProvider;
+	@Autowired
 	private CustomUserDetails customUserDetails;
+	@Autowired
 	private CartService cartService;
 	
-	public AuthController(UserRepository userRepository,PasswordEncoder passwordEncoder,JwtTokenProvider jwtTokenProvider,CustomUserDetails customUserDetails,CartService cartService) {
-		this.userRepository=userRepository;
-		this.passwordEncoder=passwordEncoder;
-		this.jwtTokenProvider=jwtTokenProvider;
-		this.customUserDetails=customUserDetails;
-		this.cartService=cartService;
-	}
 	
 	@PostMapping("/signup")
 	public ResponseEntity<AuthResponse> createUserHandler(@Valid @RequestBody User user) throws UserException{
@@ -67,7 +66,7 @@ public class AuthController {
 			createdUser.setFirstName(firstName);
 			createdUser.setLastName(lastName);
 	        createdUser.setPassword(passwordEncoder.encode(password));
-	        createdUser.setRole(role);
+	        createdUser.setRole("ROLE_CUSTOMER");
 	        
 	        User savedUser= userRepository.save(createdUser);
 	        
