@@ -1,11 +1,17 @@
 package com.jewelleryshop.modal;
 
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class Size {
 
+	@Autowired
 	private String name;
+	@Autowired
 	private int quantity;
 	
+	public Size(String string) {
+		// TODO Auto-generated constructor stub
+	}
 	public String getName() {
 		return name;
 	}

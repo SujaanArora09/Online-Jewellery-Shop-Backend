@@ -109,4 +109,9 @@ public class Cart {
 		this.totalItem = totalItem;
 	}
 
+	public void setCartItems(List<CartItem> asList) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
