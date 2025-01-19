@@ -2,10 +2,15 @@ package com.jewelleryshop.exception;
 
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class ErrorDetails {
 	
+	@Autowired
 	private String error;
+	@Autowired
 	private String details;
+	@Autowired
 	private LocalDateTime timestamp;
 
 	public ErrorDetails() {

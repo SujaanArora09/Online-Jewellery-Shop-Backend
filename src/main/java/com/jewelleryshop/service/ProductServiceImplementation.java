@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -23,15 +24,13 @@ import com.jewelleryshop.user.domain.ProductSubCategory;
 @Service
 public class ProductServiceImplementation implements ProductService {
 	
+	@Autowired
 	private ProductRepository productRepository;
+	@Autowired
 	private UserService userService;
+	@Autowired
 	private CategoryRepository categoryRepository;
 	
-	public ProductServiceImplementation(ProductRepository productRepository,UserService userService,CategoryRepository categoryRepository) {
-		this.productRepository=productRepository;
-		this.userService=userService;
-		this.categoryRepository=categoryRepository;
-	}
 	
 
 	@Override
@@ -100,8 +99,6 @@ public class ProductServiceImplementation implements ProductService {
 		
 		System.out.println("delete product "+product.getId()+" - "+productId);
 		product.getSizes().clear();
-//		productRepository.save(product);
-//		product.getCategory().
 		productRepository.delete(product);
 		
 		return "Product deleted Successfully";

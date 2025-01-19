@@ -2,6 +2,7 @@ package com.jewelleryshop.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,13 +26,10 @@ import com.jewelleryshop.service.UserService;
 @RequestMapping("/api/orders")
 public class OrderController {
 	
+	@Autowired
 	private OrderService orderService;
+	@Autowired
 	private UserService userService;
-	
-	public OrderController(OrderService orderService,UserService userService) {
-		this.orderService=orderService;
-		this.userService=userService;
-	}
 	
 	@PostMapping("/")
 	public ResponseEntity<Order> createOrderHandler(@RequestBody Address spippingAddress,
@@ -47,7 +45,7 @@ public class OrderController {
 	@GetMapping("/user")
 	public ResponseEntity< List<Order>> usersOrderHistoryHandler(@RequestHeader("Authorization") 
 	String jwt) throws OrderException, UserException{
-		
+		System.out.println("Got this jwt" + jwt);
 		User user=userService.findUserProfileByJwt(jwt);
 		List<Order> orders=orderService.usersOrderHistory(user.getId());
 		return new ResponseEntity<>(orders,HttpStatus.ACCEPTED);
