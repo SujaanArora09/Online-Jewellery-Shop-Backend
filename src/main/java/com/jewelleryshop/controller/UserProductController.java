@@ -2,6 +2,7 @@ package com.jewelleryshop.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,17 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jewelleryshop.exception.ProductException;
 import com.jewelleryshop.modal.Product;
 import com.jewelleryshop.service.ProductService;
-import com.jewelleryshop.user.domain.ProductSubCategory;
 
 @RestController
 @RequestMapping("/api")
 public class UserProductController {
 	
+	@Autowired
 	private ProductService productService;
 	
-	public UserProductController(ProductService productService) {
-		this.productService=productService;
-	}
 	
 	
 	@GetMapping("/products")

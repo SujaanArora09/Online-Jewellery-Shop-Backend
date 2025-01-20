@@ -2,6 +2,7 @@ package com.jewelleryshop.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jewelleryshop.exception.ProductException;
 import com.jewelleryshop.exception.UserException;
 import com.jewelleryshop.modal.Rating;
-import com.jewelleryshop.modal.Review;
 import com.jewelleryshop.modal.User;
 import com.jewelleryshop.request.RatingRequest;
 import com.jewelleryshop.service.RatingServices;
@@ -25,14 +25,11 @@ import com.jewelleryshop.service.UserService;
 @RequestMapping("/api/ratings")
 public class RatingController {
 	
+	@Autowired
 	private UserService userService;
+	@Autowired
 	private RatingServices ratingServices;
 	
-	public RatingController(UserService userService,RatingServices ratingServices) {
-		this.ratingServices=ratingServices;
-		this.userService=userService;
-		// TODO Auto-generated constructor stub
-	}
 
 	@PostMapping("/create")
 	public ResponseEntity<Rating> createRatingHandler(@RequestBody RatingRequest req,@RequestHeader("Authorization") String jwt) throws UserException, ProductException{
